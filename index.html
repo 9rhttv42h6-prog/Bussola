@@ -1,187 +1,825 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Digitale Accessibile - Ristorante Gourmet</title>
-    <!-- Tailwind CSS per uno stile moderno e reattivo -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#0f172a',
-                        cardBg: '#1e293b',
-                        accent: '#38bdf8'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Ristorante La Bussola | Menu Digitale</title>
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Rispetto delle preferenze utente per la riduzione del movimento */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
+        :root {
+            --bg-deep: #060c14;
+            --bg-card: rgba(14, 25, 41, 0.75);
+            --bg-card-hover: rgba(22, 38, 61, 0.85);
+            --border-gold: rgba(226, 192, 68, 0.3);
+            --gold-primary: #e2c044;
+            --gold-light: #f3dc8a;
+            --text-main: #f0f4f8;
+            --text-muted: #cbd5e1; /* Migliorato il contrasto a norma WCAG AA (> 4.5:1) */
+            --accent-blue: #1e3a8a;
         }
-        /* Focus visibile ed esplicito per la navigazione da tastiera */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(14, 38, 71, 0.6) 0%, transparent 75%),
+                radial-gradient(circle at 50% 100%, rgba(6, 12, 20, 1) 0%, transparent 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* Accessibilità Tastiera / Screen Reader */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
         :focus-visible {
-            outline: 3px solid #38bdf8 !important;
+            outline: 3px solid var(--gold-primary) !important;
             outline-offset: 2px !important;
+        }
+
+        /* HEADER & HERO */
+        header {
+            text-align: center;
+            padding: 40px 20px 25px 20px;
+            background: linear-gradient(180deg, rgba(8, 18, 30, 0.95) 0%, rgba(6, 12, 20, 0.8) 100%);
+            border-bottom: 1px solid var(--border-gold);
+            position: relative;
+        }
+
+        .compass-icon {
+            font-size: 42px;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 12px rgba(226, 192, 68, 0.4));
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle i {
+            color: var(--gold-primary);
+            margin-right: 4px;
+        }
+
+        /* BADGE CONFORMITÀ UE */
+        .compliance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* CTA BUTTONS */
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #c59b27 0%, #e2c044 50%, #b88a1d 100%);
+            color: #060c14;
+            box-shadow: 0 4px 15px rgba(226, 192, 68, 0.25);
+            font-weight: 700;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 192, 68, 0.4);
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #e2c044 0%, #ffd700 100%);
+            color: #060c14;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(226, 192, 68, 0.4);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 8px rgba(226, 192, 68, 0.3); }
+            to { box-shadow: 0 0 18px rgba(226, 192, 68, 0.7); }
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-color: var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(226, 192, 68, 0.15);
+            color: var(--gold-light);
+            border-color: var(--gold-primary);
+        }
+
+        /* CONTAINER & CONTROLS */
+        .main-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .search-box {
+            margin: 20px 0 15px 0;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            background: rgba(14, 25, 41, 0.8);
+            border: 1px solid var(--border-gold);
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 12px rgba(226, 192, 68, 0.2);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        /* STICKY NAV TABS */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 12, 20, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(226, 192, 68, 0.15);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .sticky-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--gold-primary);
+            color: #060c14;
+            border-color: var(--gold-primary);
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(226, 192, 68, 0.3);
+        }
+
+        /* MENU SECTIONS & CARDS */
+        .section-header {
+            margin: 35px 0 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .section-line {
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-gold) 0%, transparent 100%);
+            width: 100%;
+        }
+
+        .menu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .menu-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .item-info {
+            flex-grow: 1;
+        }
+
+        .item-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .badge-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(226, 192, 68, 0.15);
+            color: var(--gold-primary);
+            border: 1px solid var(--border-gold);
+        }
+
+        .item-desc-it {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .item-desc-en {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .item-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold-primary);
+            white-space: nowrap;
+        }
+
+        .allergen-badge {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* ALLERGEN TABLE */
+        .allergen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .allergen-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .allergen-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            color: #060c14;
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .allergen-text {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        /* COOKIE BANNER GDPR */
+        #cookieBanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(8, 16, 28, 0.98);
+            border-top: 1px solid var(--border-gold);
+            padding: 16px 20px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+
+        .cookie-content {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cookie-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* FOOTER & MAP */
+        footer {
+            margin-top: 60px;
+            background: rgba(4, 8, 14, 0.95);
+            border-top: 1px solid var(--border-gold);
+            padding: 40px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            margin: 20px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 26px; }
+            .cta-group { flex-direction: column; }
+            .btn-cta { width: 100%; }
+            .cookie-buttons { flex-direction: column; }
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- Link di salto per accessibilità tramite tastiera (Screen Reader / Tab) -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent text-slate-950 font-bold px-4 py-2 rounded-lg z-50">
-        Salta direttamente al menu
-    </a>
+    <!-- Link di salto per accessibilità tastiera -->
+    <a href="#main-content" class="sr-only">Salta direttamente al menu principale</a>
 
-    <!-- Intestazione del Ristorante -->
-    <header class="border-b border-slate-800 bg-slate-950/80 sticky top-0 z-40 backdrop-blur">
-        <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div>
-                <h1 class="text-xl font-bold tracking-tight text-white">Trattoria Bella Vista</h1>
-                <p class="text-xs text-slate-400">Menu Digitale Ufficiale</p>
-            </div>
-            <!-- Badge di garanzia Accessibilità & GDPR -->
-            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-medium" role="status">
-                ✓ 100% EAA & GDPR Compliant
-            </span>
+    <!-- HEADER / HERO -->
+    <header>
+        <i class="fa-solid fa-compass compass-icon" aria-hidden="true"></i>
+        <h1>Ristorante La Bussola</h1>
+        <div class="subtitle">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lungomare Amerigo Vespucci, 72 - Ostia Lido (RM)
+        </div>
+
+        <div class="compliance-badge" role="status">
+            <i class="fa-solid fa-shield-halved"></i> 100% EAA (Accessibilità) & GDPR Compliant
+        </div>
+
+        <div class="cta-group">
+            <a href="tel:+390656470867" class="btn-cta btn-book" onclick="handleCall(event)">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> Prenota un Tavolo
+            </a>
+            <a href="https://www.instagram.com/darioparadisi_labussola_risto/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-glass">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+            </a>
+            <a href="https://www.amazon.it/Follia-degli-uomini-Dario-Paradisi-ebook/dp/B0F9N4LJWB" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold" onclick="openAmazonLink(event)">
+                <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i> 📖 Scopri il Libro di Dario
+            </a>
         </div>
     </header>
 
-    <!-- Contenuto Principale del Menu -->
-    <main id="main-content" class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+    <!-- STICKY NAVIGATION TABS -->
+    <nav class="sticky-nav" aria-label="Navigazione rapida menu">
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="scrollToSection('crudi', this)">Crudi</button>
+            <button class="tab-btn" onclick="scrollToSection('primi', this)">Primi</button>
+            <button class="tab-btn" onclick="scrollToSection('secondi', this)">Secondi</button>
+            <button class="tab-btn" onclick="scrollToSection('dolci', this)">Dolci</button>
+            <button class="tab-btn" onclick="scrollToSection('bevande', this)">Bevande</button>
+            <button class="tab-btn" onclick="scrollToSection('allergeni', this)">Allergeni</button>
+        </div>
+    </nav>
+
+    <div id="main-content" class="main-container">
         
-        <!-- Avviso Informativo Obbligatorio UE sugli Allergeni -->
-        <section aria-labelledby="allergeni-heading" class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 text-xs text-slate-300 space-y-2">
-            <h2 id="allergeni-heading" class="font-bold text-slate-100 text-sm flex items-center space-x-2">
-                <span>⚠️ Informativa sulle Allergie Alimentari (Reg. UE 1169/2011)</span>
-            </h2>
-            <p>
-                Alcuni ingredienti possono provocare allergie o intolleranze. Se sei allergico o intollerante a una sostanza, informa il nostro personale prima di ordinare.
+        <!-- SEARCH BOX CON ETICHETTA ACCESSIBILE -->
+        <div class="search-box">
+            <label for="searchInput" class="sr-only">Cerca piatto o ingrediente</label>
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="text" id="searchInput" placeholder="Cerca piatto o ingrediente..." onkeyup="filterMenu()">
+        </div>
+
+        <!-- ANTIPASTI CRUDI -->
+        <div id="crudi" class="menu-section">
+            <div class="section-header">
+                <h2>Antipasti Crudi</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="crudo pesce raw fish">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Crudo</span>
+                        <span class="badge-tag">Specialità</span>
+                    </div>
+                    <div class="item-desc-it">Selezione di pescato del giorno crudo</div>
+                    <div class="item-desc-en">Fresh raw catch selection of the day</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 4, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 50 euro">€ 50,00</div>
+            </div>
+
+            <div class="menu-card" data-keywords="gran crudo imperiale raw fish imperial">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Gran Crudo</span>
+                        <span class="badge-tag">Top Choice</span>
+                    </div>
+                    <div class="item-desc-it">Degustazione imperiale di crudi e crostacei</div>
+                    <div class="item-desc-en">Imperial tasting of raw fish & shellfish</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 2, 4, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 85 euro">€ 85,00</div>
+            </div>
+        </div>
+
+        <!-- PRIMI PIATTI -->
+        <div id="primi" class="menu-section">
+            <div class="section-header">
+                <h2>Primi Piatti</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="spaghetti vongole pasta clams">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Spaghetti alle Vongole Veraci</span>
+                    </div>
+                    <div class="item-desc-it">Spaghetti trafilati al bronzo con vongole veraci e prezzemolo</div>
+                    <div class="item-desc-en">Spaghetti with clams, garlic, olive oil and parsley</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 1, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 20 euro">€ 20,00</div>
+            </div>
+
+            <div class="menu-card" data-keywords="paccheri astice lobster pasta">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Paccheri all'Astice</span>
+                        <span class="badge-tag">Consigliato</span>
+                    </div>
+                    <div class="item-desc-it">Pasta di Gragnano con astice fresco e pomodorini pachino</div>
+                    <div class="item-desc-en">Gragnano paccheri pasta with fresh lobster and cherry tomatoes</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 1, 2, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 28 euro">€ 28,00</div>
+            </div>
+        </div>
+
+        <!-- SECONDI PIATTI -->
+        <div id="secondi" class="menu-section">
+            <div class="section-header">
+                <h2>Secondi Piatti</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="grigliata mista calamari mazzancolle grilled fish">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Grigliata Mista di Mare</span>
+                    </div>
+                    <div class="item-desc-it">Pescato del giorno, mazzancolle e calamari alla brace</div>
+                    <div class="item-desc-en">Mixed grilled seafood selection of the day</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 2, 4, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 26 euro">€ 26,00</div>
+            </div>
+
+            <div class="menu-card" data-keywords="frittura paranza calamari gamberi fried squid">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Frittura di Calamari e Gamberi</span>
+                    </div>
+                    <div class="item-desc-it">Frittura croccante servita con limone fresco di Siracusa</div>
+                    <div class="item-desc-en">Crispy fried squid and prawns served with lemon</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 1, 2, 14</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 22 euro">€ 22,00</div>
+            </div>
+        </div>
+
+        <!-- DOLCI -->
+        <div id="dolci" class="menu-section">
+            <div class="section-header">
+                <h2>Dolci della Casa</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="tiramisu dessert dolce">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Tiramisù Artigianale</span>
+                    </div>
+                    <div class="item-desc-it">Ricetta classica della casa al mascarpone e caffè espresso</div>
+                    <div class="item-desc-en">Homemade traditional tiramisu with espresso</div>
+                    <div class="allergen-badge"><strong>Allergeni:</strong> 1, 3, 7</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 8 euro">€ 8,00</div>
+            </div>
+        </div>
+
+        <!-- BEVANDE -->
+        <div id="bevande" class="menu-section">
+            <div class="section-header">
+                <h2>Bevande & Cantina</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="acqua water">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Acqua Minerale (75cl)</span>
+                    </div>
+                    <div class="item-desc-it">Naturale / Frizzante</div>
+                    <div class="item-desc-en">Still / Sparkling water</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 3 euro e 50">€ 3,50</div>
+            </div>
+
+            <div class="menu-card" data-keywords="vermentino vino bianco wine">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Vermentino di Gallura DOCG</span>
+                        <span class="badge-tag">Vino Bianco</span>
+                    </div>
+                    <div class="item-desc-it">Bottiglia 75cl - Fresco, minerale e profumato</div>
+                    <div class="item-desc-en">White wine bottle 75cl - Fresh & mineral</div>
+                </div>
+                <div class="item-price" aria-label="Prezzo: 24 euro">€ 24,00</div>
+            </div>
+        </div>
+
+        <!-- TABELLA ALLERGENI (Reg. UE 1169/2011) -->
+        <div id="allergeni" class="menu-section">
+            <div class="section-header">
+                <h2>Tabella Allergeni</h2>
+                <div class="section-line" aria-hidden="true"></div>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
+                Regolamento UE 1169/2011 - I numeri riportati nei piatti corrispondono alle seguenti sostanze allergizzanti:
             </p>
-        </section>
 
-        <!-- Sezione 1: Primi Piatti -->
-        <section aria-labelledby="primi-heading" class="space-y-4">
-            <h2 id="primi-heading" class="text-2xl font-bold text-accent border-b border-slate-800 pb-2">Primi Piatti</h2>
-            
-            <div class="grid gap-4">
-                <!-- Piatto 1 -->
-                <article class="bg-slate-800 border border-slate-700 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-center">
-                    <!-- Immagine con attributo 'alt' descrittivo a norma EAA -->
-                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=80" 
-                         alt="Piatto di spaghetti alla carbonara serviti caldi con guanciale croccante e pepe nero" 
-                         class="w-full sm:w-28 h-28 object-cover rounded-xl">
-                    
-                    <div class="flex-grow space-y-1 w-full">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg text-white">Spaghetti alla Carbonara</h3>
-                            <span class="font-bold text-emerald-400 text-base" aria-label="Prezzo: 14 Euro">14,00 €</span>
-                        </div>
-                        <!-- Contrasto colore 4.5:1 a norma WCAG -->
-                        <p class="text-sm text-slate-300">Spaghetti artigianali, guanciale DOP, tuorlo d'uovo biologico, pecorino romano e pepe nero.</p>
-                        <!-- Allergeni ben evidenziati -->
-                        <div class="pt-2 text-xs text-slate-400">
-                            <strong class="text-slate-200">Allergeni:</strong> Glutine, Uova, Latticini.
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Piatto 2 -->
-                <article class="bg-slate-800 border border-slate-700 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-center">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281318?auto=format&fit=crop&w=300&q=80" 
-                         alt="Ciotola di rigatoni al pesto di basilico fresco con pinoli e scaglie di parmigiano" 
-                         class="w-full sm:w-28 h-28 object-cover rounded-xl">
-                    
-                    <div class="flex-grow space-y-1 w-full">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg text-white">Rigatoni al Pesto di Basilico</h3>
-                            <span class="font-bold text-emerald-400 text-base" aria-label="Prezzo: 12 Euro">12,00 €</span>
-                        </div>
-                        <p class="text-sm text-slate-300">Pesto di basilico genovese DOP preparato al mortaio, pinoli tostati e Parmigiano Reggiano 24 mesi.</p>
-                        <div class="pt-2 text-xs text-slate-400">
-                            <strong class="text-slate-200">Allergeni:</strong> Glutine, Frutta a guscio, Latticini.
-                        </div>
-                    </div>
-                </article>
+            <div class="allergen-grid">
+                <div class="allergen-card"><div class="allergen-num">1</div><div class="allergen-text">Glutine</div></div>
+                <div class="allergen-card"><div class="allergen-num">2</div><div class="allergen-text">Crostacei</div></div>
+                <div class="allergen-card"><div class="allergen-num">3</div><div class="allergen-text">Uova</div></div>
+                <div class="allergen-card"><div class="allergen-num">4</div><div class="allergen-text">Pesce</div></div>
+                <div class="allergen-card"><div class="allergen-num">5</div><div class="allergen-text">Arachidi</div></div>
+                <div class="allergen-card"><div class="allergen-num">6</div><div class="allergen-text">Soia</div></div>
+                <div class="allergen-card"><div class="allergen-num">7</div><div class="allergen-text">Latte & Lattosio</div></div>
+                <div class="allergen-card"><div class="allergen-num">8</div><div class="allergen-text">Frutta a guscio</div></div>
+                <div class="allergen-card"><div class="allergen-num">9</div><div class="allergen-text">Sedano</div></div>
+                <div class="allergen-card"><div class="allergen-num">10</div><div class="allergen-text">Senape</div></div>
+                <div class="allergen-card"><div class="allergen-num">11</div><div class="allergen-text">Semi di sesamo</div></div>
+                <div class="allergen-card"><div class="allergen-num">12</div><div class="allergen-text">Anidride solforosa e solfiti</div></div>
+                <div class="allergen-card"><div class="allergen-num">13</div><div class="allergen-text">Lupini</div></div>
+                <div class="allergen-card"><div class="allergen-num">14</div><div class="allergen-text">Molluschi</div></div>
             </div>
-        </section>
+        </div>
 
-        <!-- Modulo di Richiesta Contatto / Prenotazione a norma GDPR -->
-        <section aria-labelledby="prenotazioni-heading" class="bg-slate-800 border border-slate-700 rounded-2xl p-6 space-y-4">
-            <h2 id="prenotazioni-heading" class="text-xl font-bold text-white">Richiedi un Tavolo per Stasera</h2>
-            
-            <form action="#" method="POST" class="space-y-4">
-                <div class="space-y-1">
-                    <!-- Etichetta esplicita a norma WCAG (for=id) -->
-                    <label for="nomeUtente" class="block text-sm font-medium text-slate-200">Nome e Cognome</label>
-                    <input type="text" id="nomeUtente" name="nomeUtente" required class="w-full px-4 py-2 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 text-sm focus:border-accent">
-                </div>
+    </div>
 
-                <div class="space-y-1">
-                    <label for="emailUtente" class="block text-sm font-medium text-slate-200">Indirizzo Email</label>
-                    <input type="email" id="emailUtente" name="emailUtente" required class="w-full px-4 py-2 bg-slate-900 border border-slate-600 rounded-xl text-slate-100 text-sm focus:border-accent">
-                </div>
+    <!-- FOOTER & MAPPA GOOGLE MAPS -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 20px; margin-bottom: 5px;">Ristorante La Bussola</h3>
+            <p style="font-size: 13px; color: var(--text-muted);">Di Dario Paradisi</p>
+            <p style="font-size: 14px; margin: 10px 0; color: var(--text-main);">Lungomare Amerigo Vespucci, 72 - 00122 Ostia Lido (RM)</p>
 
-                <!-- Checkbox Privacy Obbligatoria (GDPR Art. 6) -->
-                <div class="flex items-start space-x-3 pt-2">
-                    <input type="checkbox" id="privacyConsent" name="privacyConsent" required class="mt-1 h-4 w-4 rounded border-slate-600 bg-slate-900 text-accent focus:ring-accent">
-                    <label for="privacyConsent" class="text-xs text-slate-300">
-                        Ho letto e accetto l'<a href="#privacy-policy" class="text-accent underline hover:text-sky-300">Informativa sulla Privacy</a> per il trattamento dei miei dati personali ai fini della prenotazione.
-                    </label>
-                </div>
-
-                <button type="submit" class="w-full bg-accent hover:bg-sky-500 text-slate-950 font-bold py-3 rounded-xl transition">
-                    Invia Richiesta
-                </button>
-            </form>
-        </section>
-
-    </main>
-
-    <!-- Banner dei Cookie conforme GDPR (Blocco preventivo e scelta esplicita) -->
-    <div id="cookieBanner" role="dialog" aria-live="polite" aria-labelledby="cookie-title" class="fixed bottom-0 inset-x-0 bg-slate-950 border-t border-slate-800 p-4 shadow-2xl z-50">
-        <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-            <div class="space-y-1 text-slate-300">
-                <p id="cookie-title" class="font-bold text-white text-sm">Gestione della Privacy e Cookie</p>
-                <p>Utilizziamo unicamente cookie tecnici necessari al funzionamento del menu digitale. Non usiamo cookie di tracciamento senza il tuo consenso.</p>
+            <!-- MAPPA INTERATTIVA -->
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Lungomare%20Amerigo%20Vespucci%2072%20Ostia%20Lido&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    title="Mappa della posizione del Ristorante La Bussola a Ostia Lido"
+                    loading="lazy">
+                </iframe>
             </div>
-            <div class="flex space-x-2 shrink-0">
-                <button onclick="acceptCookies()" class="bg-accent text-slate-950 font-bold px-4 py-2 rounded-xl text-xs hover:bg-sky-400 transition">
-                    Accetta Tutti
-                </button>
-                <button onclick="acceptCookies()" class="bg-slate-800 text-slate-300 font-medium px-4 py-2 rounded-xl text-xs hover:bg-slate-700 transition">
-                    Solo Tecnici
-                </button>
+
+            <div class="cta-group" style="margin-top: 15px;">
+                <a href="https://maps.google.com/?q=Lungomare+Amerigo+Vespucci+72+Ostia+Lido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold">
+                    <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Apri Navigatore GPS
+                </a>
+            </div>
+
+            <div class="copyright">
+                © Ristorante La Bussola | Tutti i diritti riservati
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER GDPR (Conforme Art. 7) -->
+    <div id="cookieBanner" role="dialog" aria-live="polite" aria-labelledby="cookie-title">
+        <div class="cookie-content">
+            <h3 id="cookie-title" style="font-size: 15px; color: #fff; font-family: 'Playfair Display', serif;">Informativa sulla Privacy e Cookie</h3>
+            <p class="cookie-text">
+                Questo sito utilizza esclusivamente cookie tecnici necessari al funzionamento del menu digitale. Non vengono rilasciati cookie di profilazione o tracciamento di terze parti senza il tuo consenso esplicito.
+            </p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="btn-cta btn-gold" style="padding: 8px 16px; font-size: 12px;">Accetta e Chiudi</button>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-950 text-center py-6 text-xs text-slate-400 space-y-2">
-        <p>&copy; 2026 Trattoria Bella Vista - P.IVA 01234567890. Tutti i diritti riservati.</p>
-        <div class="flex justify-center space-x-4">
-            <a href="#privacy-policy" class="hover:text-slate-200 underline">Privacy Policy</a>
-            <a href="#accessibilita" class="hover:text-slate-200 underline">Dichiarazione di Accessibilità (EAA)</a>
-        </div>
-    </footer>
-
+    <!-- JAVASCRIPT PER INTERAZIONI & COOKIE -->
     <script>
+        // Gestione Banner Cookie
         function acceptCookies() {
             document.getElementById('cookieBanner').style.display = 'none';
             localStorage.setItem('cookieConsent', 'true');
         }
         
-        // Controlla se l'utente ha già risposto al banner cookie
         if (localStorage.getItem('cookieConsent') === 'true') {
             document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        // Gestione Chiamata Telefonica
+        function handleCall(e) {
+            var phoneUrl = 'tel:+390656470867';
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (!isMobile) {
+                e.preventDefault();
+                alert("Per prenotare telefonicamente chiama il numero:\n+39 06.56470867");
+                window.location.href = phoneUrl;
+            }
+        }
+
+        // Forza Apertura Link Amazon
+        function openAmazonLink(e) {
+            e.preventDefault();
+            var amazonUrl = "https://www.amazon.it/Follia-degli-uomini-Dario-Paradisi-ebook/dp/B0F9N4LJWB";
+            window.open(amazonUrl, '_blank');
+        }
+
+        // Scroll Fluido Schede Navigazione
+        function scrollToSection(id, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            var element = document.getElementById(id);
+            if(element) {
+                var headerOffset = 70;
+                var elementPosition = element.getBoundingClientRect().top;
+                var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        // Filtro Ricerca Piatti in Tempo Reale
+        function filterMenu() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var cards = document.querySelectorAll('.menu-card');
+
+            cards.forEach(card => {
+                var text = card.innerText.toLowerCase();
+                var keywords = card.getAttribute('data-keywords') || '';
+                
+                if (text.includes(input) || keywords.toLowerCase().includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
     </script>
 </body>
