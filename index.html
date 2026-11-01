@@ -4,244 +4,706 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ristorante La Bussola | Menu Digitale</title>
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #0b1329;
-            --card-bg: #141e3c;
-            --gold: #d4af37;
-            --text-light: #f5f5f5;
-            --text-muted: #a0aec0;
+            --bg-deep: #060c14;
+            --bg-card: rgba(14, 25, 41, 0.75);
+            --bg-card-hover: rgba(22, 38, 61, 0.85);
+            --border-gold: rgba(226, 192, 68, 0.3);
+            --gold-primary: #e2c044;
+            --gold-light: #f3dc8a;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
+
         body {
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(14, 38, 71, 0.6) 0%, transparent 75%),
+                radial-gradient(circle at 50% 100%, rgba(6, 12, 20, 1) 0%, transparent 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
             line-height: 1.6;
+            padding-bottom: 60px;
         }
+
         header {
             text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 15px;
+            padding: 40px 20px 25px 20px;
+            background: linear-gradient(180deg, rgba(8, 18, 30, 0.95) 0%, rgba(6, 12, 20, 0.8) 100%);
+            border-bottom: 1px solid var(--border-gold);
+            position: relative;
         }
-        h1 {
-            color: var(--gold);
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
+
+        .compass-icon {
+            font-size: 42px;
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 12px rgba(226, 192, 68, 0.4));
+            animation: pulse 4s infinite ease-in-out;
         }
-        .info-ristorante {
-            font-size: 13px;
-            color: var(--text-muted);
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
         }
-        .section-title {
-            color: var(--gold);
-            font-size: 19px;
-            margin: 25px 0 15px 0;
-            border-left: 3px solid var(--gold);
-            padding-left: 10px;
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--gold-light);
             text-transform: uppercase;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        .piatto-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
         }
-        .piatto-header {
+
+        .subtitle i {
+            color: var(--gold-primary);
+            margin-right: 4px;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #c59b27 0%, #e2c044 50%, #b88a1d 100%);
+            color: #060c14;
+            box-shadow: 0 4px 15px rgba(226, 192, 68, 0.25);
+            font-weight: 700;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 192, 68, 0.4);
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #e2c044 0%, #ffd700 100%);
+            color: #060c14;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(226, 192, 68, 0.4);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-color: var(--border-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(226, 192, 68, 0.15);
+            color: var(--gold-light);
+            border-color: var(--gold-primary);
+        }
+
+        .main-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .search-box {
+            margin: 20px 0 15px 0;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            background: rgba(14, 25, 41, 0.8);
+            border: 1px solid var(--border-gold);
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 12px rgba(226, 192, 68, 0.2);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 12, 20, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(226, 192, 68, 0.15);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .sticky-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--gold-primary);
+            color: #060c14;
+            border-color: var(--gold-primary);
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(226, 192, 68, 0.3);
+        }
+
+        .section-header {
+            margin: 35px 0 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .section-line {
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-gold) 0%, transparent 100%);
+            width: 100%;
+        }
+
+        .menu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .menu-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+            transform: translateY(-2px);
+        }
+
+        .item-info {
+            flex-grow: 1;
+        }
+
+        .item-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 4px;
+            flex-wrap: wrap;
         }
-        .piatto-nome {
-            font-size: 15px;
-            font-weight: bold;
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
         }
-        .piatto-prezzo {
-            color: var(--gold);
-            font-size: 15px;
-            font-weight: bold;
+
+        .badge-tag {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(226, 192, 68, 0.15);
+            color: var(--gold-primary);
+            border: 1px solid var(--border-gold);
         }
-        .piatto-desc {
+
+        .item-desc-it {
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 6px;
+            margin-bottom: 2px;
         }
-        .allergeni {
-            font-size: 11px;
-            color: #cbd5e0;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        .legenda-allergeni {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 35px;
+
+        .item-desc-en {
             font-size: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #78889b;
+            font-style: italic;
         }
-        .legenda-allergeni h4 {
-            color: var(--gold);
-            margin-bottom: 6px;
+
+        .item-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold-primary);
+            white-space: nowrap;
         }
+
+        .allergen-badge {
+            display: inline-block;
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        .allergen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .allergen-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .allergen-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            color: #060c14;
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .allergen-text {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
         footer {
-            margin-top: 30px;
+            margin-top: 60px;
+            background: rgba(4, 8, 14, 0.95);
+            border-top: 1px solid var(--border-gold);
+            padding: 40px 20px 30px 20px;
             text-align: center;
+        }
+
+        .footer-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-gold);
+            margin: 20px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .copyright {
             font-size: 12px;
             color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 15px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 26px; }
+            .cta-group { flex-direction: column; }
+            .btn-cta { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>RISTORANTE LA BUSSOLA</h1>
-        <div class="info-ristorante">
-            Lungomare Amerigo Vespucci, 72 - Ostia Lido (RM)<br>
-            Tutti i prezzi sono espressi in Euro (€). Coperto e servizio inclusi.
+        <i class="fa-solid fa-compass compass-icon"></i>
+        <h1>La Bussola</h1>
+        <div class="subtitle">
+            <i class="fa-solid fa-location-dot"></i> Lungomare Amerigo Vespucci, 72 - Ostia Lido (RM)
+        </div>
+
+        <div class="cta-group">
+            <a href="tel:+390656470867" class="btn-cta btn-book">
+                <i class="fa-solid fa-phone"></i> Prenota un Tavolo
+            </a>
+            <a href="https://www.instagram.com/darioparadisi_labussola_risto/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-glass">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.amazon.it/Follia-degli-uomini-Dario-Paradisi-ebook/dp/B0F9N4LJWB" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold">
+                <i class="fa-solid fa-book-bookmark"></i> 📖 Scopri il Libro di Dario
+            </a>
         </div>
     </header>
 
-    <main>
+    <div class="sticky-nav">
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="scrollToSection('crudi', this)">Crudi</button>
+            <button class="tab-btn" onclick="scrollToSection('caldi', this)">Antipasti Caldi</button>
+            <button class="tab-btn" onclick="scrollToSection('primi', this)">Primi</button>
+            <button class="tab-btn" onclick="scrollToSection('secondi', this)">Secondi</button>
+            <button class="tab-btn" onclick="scrollToSection('dolci', this)">Dolci</button>
+            <button class="tab-btn" onclick="scrollToSection('bevande', this)">Bevande</button>
+            <button class="tab-btn" onclick="scrollToSection('allergeni', this)">Allergeni</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Cerca piatto o ingrediente..." onkeyup="filterMenu()">
+        </div>
+
         <!-- ANTIPASTI CRUDI -->
-        <section>
-            <h2 class="section-title">Antipasti Crudi</h2>
-            
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Crudo del Giorno (Specialità)</span>
-                    <span class="piatto-prezzo">€ 50,00</span>
-                </div>
-                <div class="piatto-desc">Selezione di pescato del giorno crudo / Fresh raw catch selection</div>
-                <div class="allergeni">Allergeni: Pesce, Molluschi, Crostacei</div>
+        <div id="crudi" class="menu-section">
+            <div class="section-header">
+                <h2>Antipasti Crudi</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Gran Antipasto di Mare Crudo</span>
-                    <span class="piatto-prezzo">€ 35,00</span>
+            <div class="menu-card" data-keywords="crudo pesce raw fish">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Crudo del Giorno</span>
+                        <span class="badge-tag">Specialità</span>
+                    </div>
+                    <div class="item-desc-it">Selezione di pescato del giorno crudo</div>
+                    <div class="item-desc-en">Fresh raw catch selection of the day</div>
+                    <div class="allergen-badge">Allergeni: 4, 14</div>
                 </div>
-                <div class="piatto-desc">Ostriche, tartare e carpacci del giorno</div>
-                <div class="allergeni">Allergeni: Pesce, Molluschi, Crostacei</div>
+                <div class="item-price">€ 50,00</div>
             </div>
-        </section>
+
+            <div class="menu-card" data-keywords="gran antipasto mare ostriche tartare">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Gran Antipasto di Mare Crudo</span>
+                        <span class="badge-tag">Top Choice</span>
+                    </div>
+                    <div class="item-desc-it">Ostriche, tartare e carpacci del giorno</div>
+                    <div class="item-desc-en">Oysters, tartare and daily carpaccio selection</div>
+                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                </div>
+                <div class="item-price">€ 35,00</div>
+            </div>
+        </div>
 
         <!-- ANTIPASTI CALDI -->
-        <section>
-            <h2 class="section-title">Antipasti Caldi</h2>
-            
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Soutè di Cozze e Vongole</span>
-                    <span class="piatto-prezzo">€ 18,00</span>
-                </div>
-                <div class="piatto-desc">Con crostoni di pane casereccio all'aglio</div>
-                <div class="allergeni">Allergeni: Molluschi, Cereali contenenti glutine</div>
+        <div id="caldi" class="menu-section">
+            <div class="section-header">
+                <h2>Antipasti Caldi</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Polpo Grigliato su Crema di Patate</span>
-                    <span class="piatto-prezzo">€ 20,00</span>
+            <div class="menu-card" data-keywords="soute cozze vongole crostini">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Soutè di Cozze e Vongole</span>
+                    </div>
+                    <div class="item-desc-it">Con crostoni di pane casereccio all'aglio</div>
+                    <div class="item-desc-en">Soutè of mussels and clams with garlic bread</div>
+                    <div class="allergen-badge">Allergeni: 1, 14</div>
                 </div>
-                <div class="piatto-desc">Polpo arrostito con paprika dolce e olio a crudo</div>
-                <div class="allergeni">Allergeni: Molluschi</div>
+                <div class="item-price">€ 18,00</div>
             </div>
-        </section>
+
+            <div class="menu-card" data-keywords="polpo grigliato patate">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Polpo Grigliato su Crema di Patate</span>
+                    </div>
+                    <div class="item-desc-it">Polpo arrostito con paprika dolce e olio a crudo</div>
+                    <div class="item-desc-en">Grilled octopus on potato cream with sweet paprika</div>
+                    <div class="allergen-badge">Allergeni: 14</div>
+                </div>
+                <div class="item-price">€ 20,00</div>
+            </div>
+        </div>
 
         <!-- PRIMI PIATTI -->
-        <section>
-            <h2 class="section-title">Primi Piatti</h2>
-            
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Spaghetti alle Vongole Veraci</span>
-                    <span class="piatto-prezzo">€ 20,00</span>
-                </div>
-                <div class="piatto-desc">Spaghetti trafilati al bronzo con vongole fresche e prezzemolo</div>
-                <div class="allergeni">Allergeni: Cereali (Glutine), Molluschi</div>
+        <div id="primi" class="menu-section">
+            <div class="section-header">
+                <h2>Primi Piatti</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Paccheri allo Scoglio</span>
-                    <span class="piatto-prezzo">€ 22,00</span>
+            <div class="menu-card" data-keywords="spaghetti vongole veraci pasta">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Spaghetti alle Vongole Veraci</span>
+                        <span class="badge-tag">Tradizione</span>
+                    </div>
+                    <div class="item-desc-it">Spaghetti trafilati al bronzo con vongole veraci e prezzemolo</div>
+                    <div class="item-desc-en">Spaghetti with clams, garlic and parsley</div>
+                    <div class="allergen-badge">Allergeni: 1, 14</div>
                 </div>
-                <div class="piatto-desc">Con frutti di mare, crostacei e pomodorini freschi</div>
-                <div class="allergeni">Allergeni: Cereali (Glutine), Pesce, Crostacei, Molluschi</div>
+                <div class="item-price">€ 20,00</div>
             </div>
-        </section>
+
+            <div class="menu-card" data-keywords="paccheri scoglio frutti di mare">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Paccheri allo Scoglio</span>
+                    </div>
+                    <div class="item-desc-it">Con frutti di mare, crostacei e pomodorini freschi</div>
+                    <div class="item-desc-en">Seafood paccheri with shellfish and fresh cherry tomatoes</div>
+                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
+                </div>
+                <div class="item-price">€ 22,00</div>
+            </div>
+        </div>
 
         <!-- SECONDI PIATTI -->
-        <section>
-            <h2 class="section-title">Secondi Piatti</h2>
-            
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Frittura Paranza e Calamari</span>
-                    <span class="piatto-prezzo">€ 22,00</span>
-                </div>
-                <div class="piatto-desc">Frittura croccante di pescato locale</div>
-                <div class="allergeni">Allergeni: Cereali (Glutine), Pesce, Molluschi</div>
+        <div id="secondi" class="menu-section">
+            <div class="section-header">
+                <h2>Secondi Piatti</h2>
+                <div class="section-line"></div>
             </div>
 
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Pescato del Giorno alla Griglia / al Sale</span>
-                    <span class="piatto-prezzo">€ 8,00 / 100g</span>
+            <div class="menu-card" data-keywords="frittura paranza calamari gamberi">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Frittura Paranza e Calamari</span>
+                    </div>
+                    <div class="item-desc-it">Frittura croccante di pescato locale</div>
+                    <div class="item-desc-en">Crispy mixed local fish fry</div>
+                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
                 </div>
-                <div class="piatto-desc">Spigola, orata o rombo secondo disponibilità</div>
-                <div class="allergeni">Allergeni: Pesce</div>
-            </div>
-        </section>
-
-        <!-- DOLCI E BEVANDE -->
-        <section>
-            <h2 class="section-title">Dolci & Bevande</h2>
-            
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Tiramisù della Casa</span>
-                    <span class="piatto-prezzo">€ 7,00</span>
-                </div>
-                <div class="piatto-desc">Ricetta classica artigianale</div>
-                <div class="allergeni">Allergeni: Uova, Latte, Cereali (Glutine)</div>
+                <div class="item-price">€ 22,00</div>
             </div>
 
-            <div class="piatto-card">
-                <div class="piatto-header">
-                    <span class="piatto-nome">Acqua Minerale (75cl)</span>
-                    <span class="piatto-prezzo">€ 3,00</span>
+            <div class="menu-card" data-keywords="pescato del giorno griglia sale">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Pescato del Giorno (alla Griglia / al Sale)</span>
+                        <span class="badge-tag">Fresco</span>
+                    </div>
+                    <div class="item-desc-it">Spigola, orata o rombo secondo disponibilità</div>
+                    <div class="item-desc-en">Catch of the day, grilled or salt-baked (per 100g)</div>
+                    <div class="allergen-badge">Allergeni: 4</div>
                 </div>
+                <div class="item-price">€ 8,00 / 100g</div>
             </div>
-        </section>
-
-        <!-- LEGENDA NORMATIVA EUROPEA ALLERGENI -->
-        <div class="legenda-allergeni">
-            <h4>Informazioni sugli Allergeni (Reg. UE 1169/2011)</h4>
-            <p>Se hai allergie o intolleranze alimentari, consulta il nostro personale. I piatti possono contenere tracce di allergeni o prodotti surgelati all'origine dove non disponibile il fresco.</p>
         </div>
-    </main>
+
+        <!-- DOLCI -->
+        <div id="dolci" class="menu-section">
+            <div class="section-header">
+                <h2>Dolci & Dessert</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="tiramisu della casa dolce">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Tiramisù della Casa</span>
+                    </div>
+                    <div class="item-desc-it">Ricetta classica artigianale</div>
+                    <div class="item-desc-en">Homemade traditional tiramisu</div>
+                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                </div>
+                <div class="item-price">€ 7,00</div>
+            </div>
+        </div>
+
+        <!-- BEVANDE -->
+        <div id="bevande" class="menu-section">
+            <div class="section-header">
+                <h2>Bevande & Acqua</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="menu-card" data-keywords="acqua minerale">
+                <div class="item-info">
+                    <div class="item-title-row">
+                        <span class="item-title">Acqua Minerale (75cl)</span>
+                    </div>
+                    <div class="item-desc-it">Naturale o Frizzante</div>
+                    <div class="item-desc-en">Still or sparkling water</div>
+                </div>
+                <div class="item-price">€ 3,00</div>
+            </div>
+        </div>
+
+        <!-- TABELLA ALLERGENI -->
+        <div id="allergeni" class="menu-section">
+            <div class="section-header">
+                <h2>Tabella Allergeni</h2>
+                <div class="section-line"></div>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
+                Regolamento UE 1169/2011 - I numeri riportati nei piatti corrispondono alle seguenti sostanze allergizzanti:
+            </p>
+
+            <div class="allergen-grid">
+                <div class="allergen-card"><div class="allergen-num">1</div><div class="allergen-text">Glutine</div></div>
+                <div class="allergen-card"><div class="allergen-num">2</div><div class="allergen-text">Crostacei</div></div>
+                <div class="allergen-card"><div class="allergen-num">3</div><div class="allergen-text">Uova</div></div>
+                <div class="allergen-card"><div class="allergen-num">4</div><div class="allergen-text">Pesce</div></div>
+                <div class="allergen-card"><div class="allergen-num">5</div><div class="allergen-text">Arachidi</div></div>
+                <div class="allergen-card"><div class="allergen-num">6</div><div class="allergen-text">Soia</div></div>
+                <div class="allergen-card"><div class="allergen-num">7</div><div class="allergen-text">Latte & Lattosio</div></div>
+                <div class="allergen-card"><div class="allergen-num">8</div><div class="allergen-text">Frutta a guscio</div></div>
+                <div class="allergen-card"><div class="allergen-num">9</div><div class="allergen-text">Sedano</div></div>
+                <div class="allergen-card"><div class="allergen-num">10</div><div class="allergen-text">Senape</div></div>
+                <div class="allergen-card"><div class="allergen-num">11</div><div class="allergen-text">Semi di sesamo</div></div>
+                <div class="allergen-card"><div class="allergen-num">12</div><div class="allergen-text">Solfiti</div></div>
+                <div class="allergen-card"><div class="allergen-num">13</div><div class="allergen-text">Lupini</div></div>
+                <div class="allergen-card"><div class="allergen-num">14</div><div class="allergen-text">Molluschi</div></div>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
-        <p>&copy; 2026 Ristorante La Bussola - Dario Paradisi</p>
-        <p style="margin-top: 4px;">Conforme agli standard normativi europei sui menu digitali.</p>
+        <div class="footer-content">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 20px; margin-bottom: 5px;">Ristorante La Bussola</h3>
+            <p style="font-size: 13px; color: var(--text-muted);">Di Dario Paradisi</p>
+            <p style="font-size: 14px; margin: 10px 0; color: var(--text-main);">Lungomare Amerigo Vespucci, 72 - 00122 Ostia Lido (RM)</p>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Lungomare%20Amerigo%20Vespucci%2072%20Ostia%20Lido&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="cta-group" style="margin-top: 15px;">
+                <a href="https://maps.google.com/?q=Lungomare+Amerigo+Vespucci+72+Ostia+Lido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold">
+                    <i class="fa-solid fa-diamond-turn-right"></i> Apri Navigatore GPS
+                </a>
+            </div>
+
+            <div class="copyright">
+                © 2026 Ristorante La Bussola - Dario Paradisi | Tutti i diritti riservati
+            </div>
+        </div>
     </footer>
 
+    <script>
+        function scrollToSection(id, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            var element = document.getElementById(id);
+            if(element) {
+                var headerOffset = 70;
+                var elementPosition = element.getBoundingClientRect().top;
+                var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        function filterMenu() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var cards = document.querySelectorAll('.menu-card');
+
+            cards.forEach(card => {
+                var text = card.innerText.toLowerCase();
+                var keywords = card.getAttribute('data-keywords') || '';
+                
+                if (text.includes(input) || keywords.toLowerCase().includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
