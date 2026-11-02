@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ristorante La Bussola | Menu Digitale</title>
+    <title>Ristorante La Bussola | Menu Digitale Ufficiale - Ostia Lido</title>
+    <meta name="description" content="Scopri il menu digitale del Ristorante La Bussola a Ostia Lido (RM). Pescato fresco del giorno, crudi di mare, crostacei, specialità alla brace e cucina marinara d'eccellenza.">
+    <meta name="theme-color" content="#060c14">
+    
+    <!-- Open Graph / Social Metadata -->
+    <meta property="og:type" content="restaurant.restaurant">
+    <meta property="og:title" content="Ristorante La Bussola | Menu Digitale">
+    <meta property="og:description" content="Pescato fresco, crudi imperiali e specialità di mare sul Lungomare di Ostia Lido. Prenota un tavolo o scopri il menu.">
+    <meta property="og:url" content="https://labussolaostia.github.io/">
+    <meta property="og:locale" content="it_IT">
+
     <!-- Font & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +48,8 @@
             background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 80px;
+            padding-bottom: 90px;
+            overflow-x: hidden;
         }
 
         header {
@@ -108,6 +119,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 1px solid transparent;
+            min-height: 44px; /* Ottimizzazione touch target */
         }
 
         .btn-gold {
@@ -164,6 +176,7 @@
             outline: none;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            min-height: 44px;
         }
 
         .search-box input:focus {
@@ -216,6 +229,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
+            min-height: 38px;
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -406,903 +420,903 @@
 <body>
 
     <header>
-        <i class="fa-solid fa-compass compass-icon"></i>
+        <i class="fa-solid fa-compass compass-icon" aria-hidden="true"></i>
         <h1>La Bussola</h1>
         <div class="subtitle">
-            <i class="fa-solid fa-location-dot"></i> Lungomare Amerigo Vespucci, 72 - Ostia Lido (RM)
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lungomare Amerigo Vespucci, 72 - Ostia Lido (RM)
         </div>
 
-        <div class="cta-group">
+        <nav class="cta-group" aria-label="Azioni Rapide">
             <a href="tel:+390656470867" class="btn-cta btn-book">
-                <i class="fa-solid fa-phone"></i> Prenota un Tavolo
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> Prenota un Tavolo
             </a>
-            <a href="https://www.instagram.com/darioparadisi_labussola_risto/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-glass">
-                <i class="fa-brands fa-instagram"></i> Instagram
+            <a href="https://www.instagram.com/darioparadisi_labussola_risto/" target="_blank" rel="noopener noreferrer" class="btn-cta btn-glass" aria-label="Profilo Instagram del Ristorante La Bussola">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
             </a>
-            <a href="https://www.amazon.it/Follia-degli-uomini-Dario-Paradisi-ebook/dp/B0F9N4LJWB" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold">
-                <i class="fa-solid fa-book-bookmark"></i> 📖 Scopri il Libro di Dario
+            <a href="https://www.amazon.it/Follia-degli-uomini-Dario-Paradisi-ebook/dp/B0F9N4LJWB" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold" aria-label="Scopri il libro di Dario Paradisi su Amazon">
+                <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i> 📖 Scopri il Libro di Dario
             </a>
-        </div>
+        </nav>
     </header>
 
-    <div class="sticky-nav">
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="scrollToSection('crudi', this)">Crudi</button>
-            <button class="tab-btn" onclick="scrollToSection('antipasti', this)">Antipasti</button>
-            <button class="tab-btn" onclick="scrollToSection('primi', this)">Primi</button>
-            <button class="tab-btn" onclick="scrollToSection('specialita', this)">Specialità</button>
-            <button class="tab-btn" onclick="scrollToSection('classici', this)">Classici</button>
-            <button class="tab-btn" onclick="scrollToSection('contorni', this)">Contorni</button>
-            <button class="tab-btn" onclick="scrollToSection('dolci', this)">Dolci</button>
-            <button class="tab-btn" onclick="scrollToSection('bevande', this)">Bibite</button>
-            <button class="tab-btn" onclick="scrollToSection('allergeni', this)">Allergeni</button>
+    <nav class="sticky-nav" aria-label="Navigazione Categorie Menu">
+        <div class="nav-tabs" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" onclick="scrollToSection('crudi', this)">Crudi</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('antipasti', this)">Antipasti</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('primi', this)">Primi</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('specialita', this)">Specialità</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('classici', this)">Classici</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('contorni', this)">Contorni</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('dolci', this)">Dolci</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('bevande', this)">Bibite</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="scrollToSection('allergeni', this)">Allergeni</button>
         </div>
-    </div>
+    </nav>
 
-    <div class="main-container">
+    <main class="main-container" id="main-content">
         
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Cerca piatto o ingrediente..." onkeyup="filterMenu()">
+        <div class="search-box" role="search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="text" id="searchInput" placeholder="Cerca piatto o ingrediente..." aria-label="Cerca piatto o ingrediente" onkeyup="filterMenu()">
         </div>
 
         <!-- ANTIPASTI CRUDI -->
-        <div id="crudi" class="menu-section">
+        <section id="crudi" class="menu-section">
             <div class="section-header">
                 <h2>Antipasti Crudi / Raw Appetizers</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="crudo raw fish">
+            <article class="menu-card" data-keywords="crudo raw fish">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Crudo**</span>
+                        <h3 class="item-title">Crudo**</h3>
                         <span class="badge-tag">Specialità</span>
                     </div>
-                    <div class="item-desc-it">Selezione di pescato crudo del giorno</div>
-                    <div class="item-desc-en">Raw fish selection</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Selezione di pescato crudo del giorno</p>
+                    <p class="item-desc-en">Raw fish selection</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 50,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="crudo carpaccio">
+            <article class="menu-card" data-keywords="crudo carpaccio">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Crudo Carpaccio**</span>
+                        <h3 class="item-title">Crudo Carpaccio**</h3>
                     </div>
-                    <div class="item-desc-it">Carpaccio di pesce fresco tagliato sottile</div>
-                    <div class="item-desc-en">Raw fish cut into very thin slices</div>
-                    <div class="allergen-badge">Allergeni: 4, 14</div>
+                    <p class="item-desc-it">Carpaccio di pesce fresco tagliato sottile</p>
+                    <p class="item-desc-en">Raw fish cut into very thin slices</p>
+                    <span class="allergen-badge">Allergeni: 4, 14</span>
                 </div>
                 <div class="item-price">€ 50,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gran crudo imperial raw">
+            <article class="menu-card" data-keywords="gran crudo imperial raw">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gran Crudo**</span>
+                        <h3 class="item-title">Gran Crudo**</h3>
                     </div>
-                    <div class="item-desc-it">Degustazione imperiale di crudi misti</div>
-                    <div class="item-desc-en">Imperial raw selection</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Degustazione imperiale di crudi misti</p>
+                    <p class="item-desc-en">Imperial raw selection</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 85,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="crudo crostacei shellfish">
+            <article class="menu-card" data-keywords="crudo crostacei shellfish">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Crudo Crostacei**</span>
+                        <h3 class="item-title">Crudo Crostacei**</h3>
                     </div>
-                    <div class="item-desc-it">Selezione di crostacei crudi freschi</div>
-                    <div class="item-desc-en">Shellfish raw selection</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Selezione di crostacei crudi freschi</p>
+                    <p class="item-desc-en">Shellfish raw selection</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 70,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gran crudo royal">
+            <article class="menu-card" data-keywords="gran crudo royal">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gran Crudo Royal**</span>
+                        <h3 class="item-title">Gran Crudo Royal**</h3>
                         <span class="badge-tag">Royal</span>
                     </div>
-                    <div class="item-desc-it">Selezione imperiale Royal di crudi e crostacei</div>
-                    <div class="item-desc-en">Imperial raw Royal selection</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Selezione imperiale Royal di crudi e crostacei</p>
+                    <p class="item-desc-en">Imperial raw Royal selection</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 100,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gran crudo imperiale">
+            <article class="menu-card" data-keywords="gran crudo imperiale">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gran Crudo, Imperiale**</span>
+                        <h3 class="item-title">Gran Crudo, Imperiale**</h3>
                     </div>
-                    <div class="item-desc-it">Gran plateau imperiale di mare crudo</div>
-                    <div class="item-desc-en">Imperial raw fish plateau</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Gran plateau imperiale di mare crudo</p>
+                    <p class="item-desc-en">Imperial raw fish plateau</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 145,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="crudo scampi giganti prawns">
+            <article class="menu-card" data-keywords="crudo scampi giganti prawns">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Crudo di Scampi Giganti**</span>
+                        <h3 class="item-title">Crudo di Scampi Giganti**</h3>
                     </div>
-                    <div class="item-desc-it">Scampi giganti freschi da consumare crudi</div>
-                    <div class="item-desc-en">Raw giant prawns</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Scampi giganti freschi da consumare crudi</p>
+                    <p class="item-desc-en">Raw giant prawns</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 120,00 <span style="font-size:12px; color:var(--text-muted)">al Kg</span></div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="crudissimo the big bang">
+            <article class="menu-card" data-keywords="crudissimo the big bang">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Crudissimo "The Big Bang"**</span>
+                        <h3 class="item-title">Crudissimo "The Big Bang"**</h3>
                         <span class="badge-tag">Maxi</span>
                     </div>
-                    <div class="item-desc-it">Gran plateau di crudi maxi eccezionale</div>
-                    <div class="item-desc-en">Raw fish maxi platter</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Gran plateau di crudi maxi eccezionale</p>
+                    <p class="item-desc-en">Raw fish maxi platter</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 280,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- ANTIPASTI -->
-        <div id="antipasti" class="menu-section">
+        <section id="antipasti" class="menu-section">
             <div class="section-header">
                 <h2>Antipasti / Appetizers</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="antipasto del giorno">
+            <article class="menu-card" data-keywords="antipasto del giorno">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Antipasto del Giorno</span>
+                        <h3 class="item-title">Antipasto del Giorno</h3>
                     </div>
-                    <div class="item-desc-it">Antipasto con il pescato e le idee dello chef</div>
-                    <div class="item-desc-en">Appetizer of the day</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 11, 14</div>
+                    <p class="item-desc-it">Antipasto con il pescato e le idee dello chef</p>
+                    <p class="item-desc-en">Appetizer of the day</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 11, 14</span>
                 </div>
                 <div class="item-price">€ 25,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="antipasto della bussola mixed appetizers">
+            <article class="menu-card" data-keywords="antipasto della bussola mixed appetizers">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Antipasto della Bussola*</span>
+                        <h3 class="item-title">Antipasto della Bussola*</h3>
                     </div>
-                    <div class="item-desc-it">Gran misto di antipasti caldi e freddi della casa</div>
-                    <div class="item-desc-en">Mixed appetizers of the house</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 11, 14</div>
+                    <p class="item-desc-it">Gran misto di antipasti caldi e freddi della casa</p>
+                    <p class="item-desc-en">Mixed appetizers of the house</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 11, 14</span>
                 </div>
                 <div class="item-price">€ 50,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="insalata di mare salad">
+            <article class="menu-card" data-keywords="insalata di mare salad">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Insalata di Mare*</span>
+                        <h3 class="item-title">Insalata di Mare*</h3>
                     </div>
-                    <div class="item-desc-it">Classica insalata di mare marinata</div>
-                    <div class="item-desc-en">Seafood salad</div>
-                    <div class="allergen-badge">Allergeni: 4, 14</div>
+                    <p class="item-desc-it">Classica insalata di mare marinata</p>
+                    <p class="item-desc-en">Seafood salad</p>
+                    <span class="allergen-badge">Allergeni: 4, 14</span>
                 </div>
                 <div class="item-price">€ 10,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="soute cozze mussels">
+            <article class="menu-card" data-keywords="soute cozze mussels">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Soutè Cozze</span>
+                        <h3 class="item-title">Soutè Cozze</h3>
                     </div>
-                    <div class="item-desc-it">Cozze fresche saltate in padella</div>
-                    <div class="item-desc-en">Soutè mussels</div>
-                    <div class="allergen-badge">Allergeni: 1, 14</div>
+                    <p class="item-desc-it">Cozze fresche saltate in padella</p>
+                    <p class="item-desc-en">Soutè mussels</p>
+                    <span class="allergen-badge">Allergeni: 1, 14</span>
                 </div>
                 <div class="item-price">€ 10,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="soute vongole clams">
+            <article class="menu-card" data-keywords="soute vongole clams">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Soutè Vongole</span>
+                        <h3 class="item-title">Soutè Vongole</h3>
                     </div>
-                    <div class="item-desc-it">Vongole veraci saltate con aglio, olio e prezzemolo</div>
-                    <div class="item-desc-en">Soutè clams</div>
-                    <div class="allergen-badge">Allergeni: 1, 14</div>
+                    <p class="item-desc-it">Vongole veraci saltate con aglio, olio e prezzemolo</p>
+                    <p class="item-desc-en">Soutè clams</p>
+                    <span class="allergen-badge">Allergeni: 1, 14</span>
                 </div>
                 <div class="item-price">€ 20,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="guazzetto">
+            <article class="menu-card" data-keywords="guazzetto">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Guazzetto*</span>
+                        <h3 class="item-title">Guazzetto*</h3>
                     </div>
-                    <div class="item-desc-it">Zuppetta ricca di molluschi e crostacei in guazzetto</div>
-                    <div class="item-desc-en">Guazzetto seafood soup</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
+                    <p class="item-desc-it">Zuppetta ricca di molluschi e crostacei in guazzetto</p>
+                    <p class="item-desc-en">Guazzetto seafood soup</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 80,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- PRIMI PIATTI -->
-        <div id="primi" class="menu-section">
+        <section id="primi" class="menu-section">
             <div class="section-header">
                 <h2>Primi Piatti / First Courses</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="risotto crema di scampi prawn cream">
+            <article class="menu-card" data-keywords="risotto crema di scampi prawn cream">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Risotto alla crema di scampi</span>
+                        <h3 class="item-title">Risotto alla crema di scampi</h3>
                     </div>
-                    <div class="item-desc-it">Risotto mantecato con vellutata di scampi</div>
-                    <div class="item-desc-en">Rice with prawn cream</div>
-                    <div class="allergen-badge">Allergeni: 2, 7</div>
+                    <p class="item-desc-it">Risotto mantecato con vellutata di scampi</p>
+                    <p class="item-desc-en">Rice with prawn cream</p>
+                    <span class="allergen-badge">Allergeni: 2, 7</span>
                 </div>
                 <div class="item-price">€ 19,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="spaghetti vongole clams">
+            <article class="menu-card" data-keywords="spaghetti vongole clams">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Spaghetti alle vongole</span>
+                        <h3 class="item-title">Spaghetti alle vongole</h3>
                     </div>
-                    <div class="item-desc-it">Con vongole veraci fresche</div>
-                    <div class="item-desc-en">Spaghetti with clams</div>
-                    <div class="allergen-badge">Allergeni: 1, 14</div>
+                    <p class="item-desc-it">Con vongole veraci fresche</p>
+                    <p class="item-desc-en">Spaghetti with clams</p>
+                    <span class="allergen-badge">Allergeni: 1, 14</span>
                 </div>
                 <div class="item-price">€ 18,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="fettuccine allo scoglio">
+            <article class="menu-card" data-keywords="fettuccine allo scoglio">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Fettuccine allo scoglio*</span>
+                        <h3 class="item-title">Fettuccine allo scoglio*</h3>
                     </div>
-                    <div class="item-desc-it">Fettuccine fresche con vongole, cozze, pomodorini e crostacei</div>
-                    <div class="item-desc-en">Fresh fettuccine with clams, tomato and mussels</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
+                    <p class="item-desc-it">Fettuccine fresche con vongole, cozze, pomodorini e crostacei</p>
+                    <p class="item-desc-en">Fresh fettuccine with clams, tomato and mussels</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 20,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="risotto alla pescatora">
+            <article class="menu-card" data-keywords="risotto alla pescatora">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Risotto alla pescatora*</span>
+                        <h3 class="item-title">Risotto alla pescatora*</h3>
                     </div>
-                    <div class="item-desc-it">Risotto con misto di mare dello chef</div>
-                    <div class="item-desc-en">Risotto with mixed fish</div>
-                    <div class="allergen-badge">Allergeni: 2, 14</div>
+                    <p class="item-desc-it">Risotto con misto di mare dello chef</p>
+                    <p class="item-desc-en">Risotto with mixed fish</p>
+                    <span class="allergen-badge">Allergeni: 2, 14</span>
                 </div>
                 <div class="item-price">€ 18,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="linguine al granchio crab">
+            <article class="menu-card" data-keywords="linguine al granchio crab">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Linguine al granchio</span>
+                        <h3 class="item-title">Linguine al granchio</h3>
                     </div>
-                    <div class="item-desc-it">Linguine mantecate al sugo di granchio</div>
-                    <div class="item-desc-en">Linguine with crab</div>
-                    <div class="allergen-badge">Allergeni: 1, 2</div>
+                    <p class="item-desc-it">Linguine mantecate al sugo di granchio</p>
+                    <p class="item-desc-en">Linguine with crab</p>
+                    <span class="allergen-badge">Allergeni: 1, 2</span>
                 </div>
                 <div class="item-price">€ 30,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="primo del giorno">
+            <article class="menu-card" data-keywords="primo del giorno">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Primo del giorno*</span>
+                        <h3 class="item-title">Primo del giorno*</h3>
                     </div>
-                    <div class="item-desc-it">La proposta speciale del giorno del nostro chef</div>
-                    <div class="item-desc-en">First dish of the day</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
+                    <p class="item-desc-it">La proposta speciale del giorno del nostro chef</p>
+                    <p class="item-desc-en">First dish of the day</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 25,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="linguine all astice lobster">
+            <article class="menu-card" data-keywords="linguine all astice lobster">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Linguine all'astice*</span>
+                        <h3 class="item-title">Linguine all'astice*</h3>
                         <span class="badge-tag">Top Choice</span>
                     </div>
-                    <div class="item-desc-it">Linguine con astice fresco</div>
-                    <div class="item-desc-en">Linguine with lobster</div>
-                    <div class="allergen-badge">Allergeni: 1, 2</div>
+                    <p class="item-desc-it">Linguine con astice fresco</p>
+                    <p class="item-desc-en">Linguine with lobster</p>
+                    <span class="allergen-badge">Allergeni: 1, 2</span>
                 </div>
                 <div class="item-price">€ 35,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tonnarelli all astice blu">
+            <article class="menu-card" data-keywords="tonnarelli all astice blu">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Tonnarelli all'astice blu</span>
+                        <h3 class="item-title">Tonnarelli all'astice blu</h3>
                     </div>
-                    <div class="item-desc-it">Tonnarelli fatti in casa con pregiato astice blu</div>
-                    <div class="item-desc-en">Tonnarelli with crab blu lobster</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 3</div>
+                    <p class="item-desc-it">Tonnarelli fatti in casa con pregiato astice blu</p>
+                    <p class="item-desc-en">Tonnarelli with crab blu lobster</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 3</span>
                 </div>
                 <div class="item-price">€ 38,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tonnarelli all aragosta">
+            <article class="menu-card" data-keywords="tonnarelli all aragosta">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Tonnarelli all'aragosta</span>
+                        <h3 class="item-title">Tonnarelli all'aragosta</h3>
                     </div>
-                    <div class="item-desc-it">Tonnarelli freschi con aragosta</div>
-                    <div class="item-desc-en">Linguine with lobster</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 3</div>
+                    <p class="item-desc-it">Tonnarelli freschi con aragosta</p>
+                    <p class="item-desc-en">Linguine with lobster</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 3</span>
                 </div>
                 <div class="item-price">€ 70,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tonnarelli granchio reale king crab">
+            <article class="menu-card" data-keywords="tonnarelli granchio reale king crab">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Tonnarelli Granchio Reale*</span>
+                        <h3 class="item-title">Tonnarelli Granchio Reale*</h3>
                     </div>
-                    <div class="item-desc-it">Con preziosa polpa di granchio reale</div>
-                    <div class="item-desc-en">Tonnarello King Crab</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 3</div>
+                    <p class="item-desc-it">Con preziosa polpa di granchio reale</p>
+                    <p class="item-desc-en">Tonnarello King Crab</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 3</span>
                 </div>
                 <div class="item-price">€ 55,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- SPECIALITA DELLA CASA -->
-        <div id="specialita" class="menu-section">
+        <section id="specialita" class="menu-section">
             <div class="section-header">
                 <h2>Specialità della Casa / House Specialty</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="zuppa di pesce">
+            <article class="menu-card" data-keywords="zuppa di pesce">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Zuppa di pesce</span>
+                        <h3 class="item-title">Zuppa di pesce</h3>
                     </div>
-                    <div class="item-desc-it">Zuppa tradizionale con pescato misto e crostacei</div>
-                    <div class="item-desc-en">Fish soup</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 4, 14</div>
+                    <p class="item-desc-it">Zuppa tradizionale con pescato misto e crostacei</p>
+                    <p class="item-desc-en">Fish soup</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 45,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="zuppa di crostacei">
+            <article class="menu-card" data-keywords="zuppa di crostacei">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Zuppa di crostacei</span>
+                        <h3 class="item-title">Zuppa di crostacei</h3>
                     </div>
-                    <div class="item-desc-it">Ricca zuppa di soli crostacei pregiati</div>
-                    <div class="item-desc-en">Shellfish soup</div>
-                    <div class="allergen-badge">Allergeni: 1, 2</div>
+                    <p class="item-desc-it">Ricca zuppa di soli crostacei pregiati</p>
+                    <p class="item-desc-en">Shellfish soup</p>
+                    <span class="allergen-badge">Allergeni: 1, 2</span>
                 </div>
                 <div class="item-price">€ 90,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="astice alla catalana">
+            <article class="menu-card" data-keywords="astice alla catalana">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Astice alla Catalana</span>
+                        <h3 class="item-title">Astice alla Catalana</h3>
                     </div>
-                    <div class="item-desc-it">Astice bollito con cipolla rossa, pomodorini e olio</div>
-                    <div class="item-desc-en">Catalona Lobster</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Astice bollito con cipolla rossa, pomodorini e olio</p>
+                    <p class="item-desc-en">Catalona Lobster</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 70,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="astice alla bussola">
+            <article class="menu-card" data-keywords="astice alla bussola">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Astice alla Bussola</span>
+                        <h3 class="item-title">Astice alla Bussola</h3>
                         <span class="badge-tag">Firma</span>
                     </div>
-                    <div class="item-desc-it">Avocado, pomodorini, cipolle, patate, piccante</div>
-                    <div class="item-desc-en">Avocado, cherry tomatoes, onion, potatoes, spicy</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Avocado, pomodorini, cipolle, patate, piccante</p>
+                    <p class="item-desc-en">Avocado, cherry tomatoes, onion, potatoes, spicy</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 70,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="astice alla griglia grilled lobster">
+            <article class="menu-card" data-keywords="astice alla griglia grilled lobster">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Astice alla Griglia</span>
+                        <h3 class="item-title">Astice alla Griglia</h3>
                     </div>
-                    <div class="item-desc-it">Astice arrostito alla brace</div>
-                    <div class="item-desc-en">Grilled lobster</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Astice arrostito alla brace</p>
+                    <p class="item-desc-en">Grilled lobster</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 70,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="scampi alla catalana">
+            <article class="menu-card" data-keywords="scampi alla catalana">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Scampi alla Catalana</span>
+                        <h3 class="item-title">Scampi alla Catalana</h3>
                     </div>
-                    <div class="item-desc-it">Scampi freschi conditi alla catalana</div>
-                    <div class="item-desc-en">Catalan-style shrimp</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Scampi freschi conditi alla catalana</p>
+                    <p class="item-desc-en">Catalan-style shrimp</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 50,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="imperial catalana misto crostacei 4 persone">
+            <article class="menu-card" data-keywords="imperial catalana misto crostacei 4 persone">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Imperial Catalana (misto crostacei 4 persone)</span>
+                        <h3 class="item-title">Imperial Catalana (misto crostacei 4 persone)</h3>
                     </div>
-                    <div class="item-desc-it">Gran piatto di crostacei misti alla catalana</div>
-                    <div class="item-desc-en">Mixed shellfish for 4 people</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Gran piatto di crostacei misti alla catalana</p>
+                    <p class="item-desc-en">Mixed shellfish for 4 people</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 200,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="imperiale bussola misto crostacei 4 persone">
+            <article class="menu-card" data-keywords="imperiale bussola misto crostacei 4 persone">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Imperiale Bussola (misto crostacei 4 persone)</span>
+                        <h3 class="item-title">Imperiale Bussola (misto crostacei 4 persone)</h3>
                     </div>
-                    <div class="item-desc-it">Selezione speciale della casa per 4 persone</div>
-                    <div class="item-desc-en">Mixed shellfish for 4 people</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Selezione speciale della casa per 4 persone</p>
+                    <p class="item-desc-en">Mixed shellfish for 4 people</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 200,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gamberoni alla catalana">
+            <article class="menu-card" data-keywords="gamberoni alla catalana">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gamberoni alla Catalana</span>
+                        <h3 class="item-title">Gamberoni alla Catalana</h3>
                     </div>
-                    <div class="item-desc-it">Gamberoni freschi alla catalana</div>
-                    <div class="item-desc-en">Catalan prawns</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Gamberoni freschi alla catalana</p>
+                    <p class="item-desc-en">Catalan prawns</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 45,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gamberoni alla bussola">
+            <article class="menu-card" data-keywords="gamberoni alla bussola">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gamberoni alla Bussola</span>
+                        <h3 class="item-title">Gamberoni alla Bussola</h3>
                     </div>
-                    <div class="item-desc-it">Gamberoni preparati secondo la ricetta esclusiva</div>
-                    <div class="item-desc-en">Bussola prawns</div>
-                    <div class="allergen-badge">Allergeni: 2, 4</div>
+                    <p class="item-desc-it">Gamberoni preparati secondo la ricetta esclusiva</p>
+                    <p class="item-desc-en">Bussola prawns</p>
+                    <span class="allergen-badge">Allergeni: 2, 4</span>
                 </div>
                 <div class="item-price">€ 45,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="astice blu al kg">
+            <article class="menu-card" data-keywords="astice blu al kg">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Astice Blu</span>
+                        <h3 class="item-title">Astice Blu</h3>
                     </div>
-                    <div class="item-desc-it">Astice blu fresco al chilogrammo</div>
-                    <div class="item-desc-en">Blue lobster (al kg)</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Astice blu fresco al chilogrammo</p>
+                    <p class="item-desc-en">Blue lobster (al kg)</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 120,00 <span style="font-size:12px; color:var(--text-muted)">al Kg</span></div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="aragosta al kg">
+            <article class="menu-card" data-keywords="aragosta al kg">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Aragosta</span>
+                        <h3 class="item-title">Aragosta</h3>
                     </div>
-                    <div class="item-desc-it">Aragosta fresca al chilogrammo</div>
-                    <div class="item-desc-en">Lobster (al kg)</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Aragosta fresca al chilogrammo</p>
+                    <p class="item-desc-en">Lobster (al kg)</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 180,00 <span style="font-size:12px; color:var(--text-muted)">al Kg</span></div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="king crab al kg">
+            <article class="menu-card" data-keywords="king crab al kg">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">King Crab</span>
+                        <h3 class="item-title">King Crab</h3>
                     </div>
-                    <div class="item-desc-it">Granchio reale al chilogrammo</div>
-                    <div class="item-desc-en">King crab (al kg)</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Granchio reale al chilogrammo</p>
+                    <p class="item-desc-en">King crab (al kg)</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 170,00 <span style="font-size:12px; color:var(--text-muted)">al Kg</span></div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- CLASSICI -->
-        <div id="classici" class="menu-section">
+        <section id="classici" class="menu-section">
             <div class="section-header">
                 <h2>Classici / Classics</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="pesce fresco vetrina etto">
+            <article class="menu-card" data-keywords="pesce fresco vetrina etto">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Pesce fresco in vetrina</span>
+                        <h3 class="item-title">Pesce fresco in vetrina</h3>
                         <span class="badge-tag">Fresco</span>
                     </div>
-                    <div class="item-desc-it">La nostra specialità è il pesce alla brace (prezzo all'etto)</div>
-                    <div class="item-desc-en">Fresh fish at the fishmonger's bar with a price hectogram</div>
+                    <p class="item-desc-it">La nostra specialità è il pesce alla brace (prezzo all'etto)</p>
+                    <p class="item-desc-en">Fresh fish at the fishmonger's bar with a price hectogram</p>
                 </div>
                 <div class="item-price">€ 7,00 <span style="font-size:12px; color:var(--text-muted)">all'etto</span></div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="scampi alla piastra grilled shrimp">
+            <article class="menu-card" data-keywords="scampi alla piastra grilled shrimp">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Scampi alla piastra*</span>
+                        <h3 class="item-title">Scampi alla piastra*</h3>
                     </div>
-                    <div class="item-desc-it">Scampi cotti alla piastra</div>
-                    <div class="item-desc-en">Grilled shrimp</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Scampi cotti alla piastra</p>
+                    <p class="item-desc-en">Grilled shrimp</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 30,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gamberoni alla piastra grilled prawns">
+            <article class="menu-card" data-keywords="gamberoni alla piastra grilled prawns">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Gamberoni alla piastra*</span>
+                        <h3 class="item-title">Gamberoni alla piastra*</h3>
                     </div>
-                    <div class="item-desc-it">Gamberoni grigliati</div>
-                    <div class="item-desc-en">Grilled prawns</div>
-                    <div class="allergen-badge">Allergeni: 2</div>
+                    <p class="item-desc-it">Gamberoni grigliati</p>
+                    <p class="item-desc-en">Grilled prawns</p>
+                    <span class="allergen-badge">Allergeni: 2</span>
                 </div>
                 <div class="item-price">€ 30,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="calamari alla piastra grilled squid">
+            <article class="menu-card" data-keywords="calamari alla piastra grilled squid">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Calamari alla piastra*</span>
+                        <h3 class="item-title">Calamari alla piastra*</h3>
                     </div>
-                    <div class="item-desc-it">Calamari teneri alla piastra</div>
-                    <div class="item-desc-en">Grilled squid</div>
-                    <div class="allergen-badge">Allergeni: 14</div>
+                    <p class="item-desc-it">Calamari teneri alla piastra</p>
+                    <p class="item-desc-en">Grilled squid</p>
+                    <span class="allergen-badge">Allergeni: 14</span>
                 </div>
                 <div class="item-price">€ 25,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="grigliata mista grilled mixed fish">
+            <article class="menu-card" data-keywords="grigliata mista grilled mixed fish">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Grigliata Mista*</span>
+                        <h3 class="item-title">Grigliata Mista*</h3>
                     </div>
-                    <div class="item-desc-it">Selezione di pescato misto alla brace</div>
-                    <div class="item-desc-en">Grilled mixed fish</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Selezione di pescato misto alla brace</p>
+                    <p class="item-desc-en">Grilled mixed fish</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 35,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="arrosto misto mixed fish of grill">
+            <article class="menu-card" data-keywords="arrosto misto mixed fish of grill">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Arrosto Misto*</span>
+                        <h3 class="item-title">Arrosto Misto*</h3>
                     </div>
-                    <div class="item-desc-it">Arrosto misto di pesce dell'Adriatico/Tirreno</div>
-                    <div class="item-desc-en">Mixed fish of grill</div>
-                    <div class="allergen-badge">Allergeni: 2, 4, 14</div>
+                    <p class="item-desc-it">Arrosto misto di pesce dell'Adriatico/Tirreno</p>
+                    <p class="item-desc-en">Mixed fish of grill</p>
+                    <span class="allergen-badge">Allergeni: 2, 4, 14</span>
                 </div>
                 <div class="item-price">€ 35,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="fritto di calamari fried squids">
+            <article class="menu-card" data-keywords="fritto di calamari fried squids">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Fritto di calamari*</span>
+                        <h3 class="item-title">Fritto di calamari*</h3>
                     </div>
-                    <div class="item-desc-it">Calamari fritti dorati e croccanti</div>
-                    <div class="item-desc-en">Mixed fried of squids</div>
-                    <div class="allergen-badge">Allergeni: 1, 14</div>
+                    <p class="item-desc-it">Calamari fritti dorati e croccanti</p>
+                    <p class="item-desc-en">Mixed fried of squids</p>
+                    <span class="allergen-badge">Allergeni: 1, 14</span>
                 </div>
                 <div class="item-price">€ 20,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="fritto di calamari e gamberi">
+            <article class="menu-card" data-keywords="fritto di calamari e gamberi">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Fritto di calamari e gamberi*</span>
+                        <h3 class="item-title">Fritto di calamari e gamberi*</h3>
                     </div>
-                    <div class="item-desc-it">Frittura mista di calamari e gamberi</div>
-                    <div class="item-desc-en">Mixed fried of squids and prawns</div>
-                    <div class="allergen-badge">Allergeni: 1, 2, 14</div>
+                    <p class="item-desc-it">Frittura mista di calamari e gamberi</p>
+                    <p class="item-desc-en">Mixed fried of squids and prawns</p>
+                    <span class="allergen-badge">Allergeni: 1, 2, 14</span>
                 </div>
                 <div class="item-price">€ 20,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="fritto di paranza">
+            <article class="menu-card" data-keywords="fritto di paranza">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Fritto di paranza*</span>
+                        <h3 class="item-title">Fritto di paranza*</h3>
                     </div>
-                    <div class="item-desc-it">Frittura di pescato misto di paranza del giorno</div>
-                    <div class="item-desc-en">Mixed fried fish caught on the day</div>
-                    <div class="allergen-badge">Allergeni: 1, 4, 14</div>
+                    <p class="item-desc-it">Frittura di pescato misto di paranza del giorno</p>
+                    <p class="item-desc-en">Mixed fried fish caught on the day</p>
+                    <span class="allergen-badge">Allergeni: 1, 4, 14</span>
                 </div>
                 <div class="item-price">€ 25,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- CONTORNI -->
-        <div id="contorni" class="menu-section">
+        <section id="contorni" class="menu-section">
             <div class="section-header">
                 <h2>Contorni / Side Dishes</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="patate fritte french fries">
+            <article class="menu-card" data-keywords="patate fritte french fries">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Patate Fritte</span>
+                        <h3 class="item-title">Patate Fritte</h3>
                     </div>
-                    <div class="item-desc-en">French fries</div>
+                    <p class="item-desc-en">French fries</p>
                 </div>
                 <div class="item-price">€ 4,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="insalata verde green salad">
+            <article class="menu-card" data-keywords="insalata verde green salad">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Insalata Verde</span>
+                        <h3 class="item-title">Insalata Verde</h3>
                     </div>
-                    <div class="item-desc-en">Green Salad</div>
+                    <p class="item-desc-en">Green Salad</p>
                 </div>
                 <div class="item-price">€ 4,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="insalata mista mixed salad">
+            <article class="menu-card" data-keywords="insalata mista mixed salad">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Insalata Mista</span>
+                        <h3 class="item-title">Insalata Mista</h3>
                     </div>
-                    <div class="item-desc-en">Mixed Salad</div>
+                    <p class="item-desc-en">Mixed Salad</p>
                 </div>
                 <div class="item-price">€ 4,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="contorni di stagione vegetables">
+            <article class="menu-card" data-keywords="contorni di stagione vegetables">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Contorni di stagione</span>
+                        <h3 class="item-title">Contorni di stagione</h3>
                     </div>
-                    <div class="item-desc-en">Vegetables of the season</div>
-                    <div class="allergen-badge">Allergeni: 9</div>
+                    <p class="item-desc-en">Vegetables of the season</p>
+                    <span class="allergen-badge">Allergeni: 9</span>
                 </div>
                 <div class="item-price">€ 5,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="verdure grigliate grilled vegetables">
+            <article class="menu-card" data-keywords="verdure grigliate grilled vegetables">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Verdure grigliate</span>
+                        <h3 class="item-title">Verdure grigliate</h3>
                     </div>
-                    <div class="item-desc-en">Grilled vegetables</div>
+                    <p class="item-desc-en">Grilled vegetables</p>
                 </div>
                 <div class="item-price">€ 5,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="insalata capricciosa">
+            <article class="menu-card" data-keywords="insalata capricciosa">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">Insalata capricciosa</span>
+                        <h3 class="item-title">Insalata capricciosa</h3>
                     </div>
-                    <div class="item-desc-it">Lattuga, radicchio, rughetta, funghi, tonno, mais, mozzarella, pomodoro</div>
-                    <div class="item-desc-en">Romaine lettuce, red radicchio, rocket, tuna, corn, mozzarella, tomato</div>
+                    <p class="item-desc-it">Lattuga, radicchio, rughetta, funghi, tonno, mais, mozzarella, pomodoro</p>
+                    <p class="item-desc-en">Romaine lettuce, red radicchio, rocket, tuna, corn, mozzarella, tomato</p>
                 </div>
                 <div class="item-price">€ 9,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- DOLCI E FRUTTA -->
-        <div id="dolci" class="menu-section">
+        <section id="dolci" class="menu-section">
             <div class="section-header">
                 <h2>Frutta e Dolci fatti in casa / Fruit & Homemade sweets</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="frutta royal">
+            <article class="menu-card" data-keywords="frutta royal">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Frutta Royal</span></div>
-                    <div class="item-desc-en">Royal Fruit</div>
+                    <div class="item-title-row"><h3 class="item-title">Frutta Royal</h3></div>
+                    <p class="item-desc-en">Royal Fruit</p>
                 </div>
                 <div class="item-price">€ 25,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="frutta in trionfo mix fruit">
+            <article class="menu-card" data-keywords="frutta in trionfo mix fruit">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Frutta in trionfo</span></div>
-                    <div class="item-desc-en">Mix Fruit</div>
+                    <div class="item-title-row"><h3 class="item-title">Frutta in trionfo</h3></div>
+                    <p class="item-desc-en">Mix Fruit</p>
                 </div>
                 <div class="item-price">€ 49,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="la casa della golosità mix of desserts">
+            <article class="menu-card" data-keywords="la casa della golosità mix of desserts">
                 <div class="item-info">
                     <div class="item-title-row">
-                        <span class="item-title">La casa della golosità (almeno 4 persone)</span>
+                        <h3 class="item-title">La casa della golosità (almeno 4 persone)</h3>
                     </div>
-                    <div class="item-desc-en">Mix of desserts</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7, 13</div>
+                    <p class="item-desc-en">Mix of desserts</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7, 13</span>
                 </div>
                 <div class="item-price">€ 49,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="panna cotta">
+            <article class="menu-card" data-keywords="panna cotta">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Panna cotta frutti di bosco o cioccolata</span></div>
-                    <div class="item-desc-en">Panna cotta with wild berries or chocolate</div>
-                    <div class="allergen-badge">Allergeni: 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Panna cotta frutti di bosco o cioccolata</h3></div>
+                    <p class="item-desc-en">Panna cotta with wild berries or chocolate</p>
+                    <span class="allergen-badge">Allergeni: 7</span>
                 </div>
                 <div class="item-price">€ 6,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tortino al cioccolato chocolate cake">
+            <article class="menu-card" data-keywords="tortino al cioccolato chocolate cake">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Tortino al cioccolato</span></div>
-                    <div class="item-desc-en">Chocolate cake</div>
-                    <div class="allergen-badge">Allergeni: 1, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Tortino al cioccolato</h3></div>
+                    <p class="item-desc-en">Chocolate cake</p>
+                    <span class="allergen-badge">Allergeni: 1, 7</span>
                 </div>
                 <div class="item-price">€ 8,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="baba cioccolato">
+            <article class="menu-card" data-keywords="baba cioccolato">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Babà con colata di cioccolato</span></div>
-                    <div class="item-desc-en">Baba with chocolate pouring</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Babà con colata di cioccolato</h3></div>
+                    <p class="item-desc-en">Baba with chocolate pouring</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 8,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="cheesecake">
+            <article class="menu-card" data-keywords="cheesecake">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Cheese cake</span></div>
-                    <div class="item-desc-en">Cheese cake</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Cheese cake</h3></div>
+                    <p class="item-desc-en">Cheese cake</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 7,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="sbriciolata">
+            <article class="menu-card" data-keywords="sbriciolata">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Sbriciolata (frutti di bosco e cioccolata)</span></div>
-                    <div class="item-desc-en">Sbriciolata</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Sbriciolata (frutti di bosco e cioccolata)</h3></div>
+                    <p class="item-desc-en">Sbriciolata</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 7,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tiramisu">
+            <article class="menu-card" data-keywords="tiramisu">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Tiramisù</span></div>
-                    <div class="item-desc-en">Tiramisu</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Tiramisù</h3></div>
+                    <p class="item-desc-en">Tiramisu</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 7,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="tiramisu alle fragole">
+            <article class="menu-card" data-keywords="tiramisu alle fragole">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Tiramisù alle Fragole</span></div>
-                    <div class="item-desc-en">Tiramisu of strawberries</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Tiramisù alle Fragole</h3></div>
+                    <p class="item-desc-en">Tiramisu of strawberries</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 8,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="creme caramel panna cotta">
+            <article class="menu-card" data-keywords="creme caramel panna cotta">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Creme Caramel / Panna Cotta</span></div>
-                    <div class="item-desc-en">Creme Caramel</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Creme Caramel / Panna Cotta</h3></div>
+                    <p class="item-desc-en">Creme Caramel</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 6,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="dolce del giorno dessert">
+            <article class="menu-card" data-keywords="dolce del giorno dessert">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Dolce del giorno</span></div>
-                    <div class="item-desc-en">Dessert of the day</div>
-                    <div class="allergen-badge">Allergeni: 1, 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Dolce del giorno</h3></div>
+                    <p class="item-desc-en">Dessert of the day</p>
+                    <span class="allergen-badge">Allergeni: 1, 3, 7</span>
                 </div>
                 <div class="item-price">€ 9,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="crema catalana">
+            <article class="menu-card" data-keywords="crema catalana">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Crema catalana</span></div>
-                    <div class="item-desc-en">Catalan cream</div>
-                    <div class="allergen-badge">Allergeni: 3, 7</div>
+                    <div class="item-title-row"><h3 class="item-title">Crema catalana</h3></div>
+                    <p class="item-desc-en">Catalan cream</p>
+                    <span class="allergen-badge">Allergeni: 3, 7</span>
                 </div>
                 <div class="item-price">€ 8,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="gelati ice cream coppa artigianale">
+            <article class="menu-card" data-keywords="gelati ice cream coppa artigianale">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Coppa artigianale / Gelati</span></div>
-                    <div class="item-desc-en">Homemade Ice Cream</div>
+                    <div class="item-title-row"><h3 class="item-title">Coppa artigianale / Gelati</h3></div>
+                    <p class="item-desc-en">Homemade Ice Cream</p>
                 </div>
                 <div class="item-price">€ 6,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="pane bread">
+            <article class="menu-card" data-keywords="pane bread">
                 <div class="item-info">
-                    <div class="item-title-row"><span class="item-title">Pane</span></div>
-                    <div class="item-desc-en">Bread</div>
-                    <div class="allergen-badge">Allergeni: 1</div>
+                    <div class="item-title-row"><h3 class="item-title">Pane</h3></div>
+                    <p class="item-desc-en">Bread</p>
+                    <span class="allergen-badge">Allergeni: 1</span>
                 </div>
                 <div class="item-price">€ 1,50</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- BEVANDE -->
-        <div id="bevande" class="menu-section">
+        <section id="bevande" class="menu-section">
             <div class="section-header">
                 <h2>Bibite / Drink</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
 
-            <div class="menu-card" data-keywords="acqua 1/2 litro water">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Acqua 1/2 Litro</span></div><div class="item-desc-en">Water 1/2 liter</div></div>
+            <article class="menu-card" data-keywords="acqua 1/2 litro water">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Acqua 1/2 Litro</h3></div><p class="item-desc-en">Water 1/2 liter</p></div>
                 <div class="item-price">€ 2,50</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="acqua 0,75 cl water">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Acqua 0,75 cl</span></div><div class="item-desc-en">Water 0,75 liter</div></div>
+            <article class="menu-card" data-keywords="acqua 0,75 cl water">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Acqua 0,75 cl</h3></div><p class="item-desc-en">Water 0,75 liter</p></div>
                 <div class="item-price">€ 3,50</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="coca cola 1 litro">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Coca Cola 1 Litro</span></div><div class="item-desc-en">Coca Cola 1 liter</div></div>
+            <article class="menu-card" data-keywords="coca cola 1 litro">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Coca Cola 1 Litro</h3></div><p class="item-desc-en">Coca Cola 1 liter</p></div>
                 <div class="item-price">€ 5,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="aranciata 1 litro">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Aranciata 1 litro</span></div><div class="item-desc-en">Sparkling orange juice 1 liter</div></div>
+            <article class="menu-card" data-keywords="aranciata 1 litro">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Aranciata 1 litro</h3></div><p class="item-desc-en">Sparkling orange juice 1 liter</p></div>
                 <div class="item-price">€ 6,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="sprite 1 litro">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Sprite 1 litro</span></div><div class="item-desc-en">Sprite 1 liter</div></div>
+            <article class="menu-card" data-keywords="sprite 1 litro">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Sprite 1 litro</h3></div><p class="item-desc-en">Sprite 1 liter</p></div>
                 <div class="item-price">€ 5,00</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="lattina coca cola">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Lattina Coca Cola</span></div><div class="item-desc-en">Coca Cola 33 cl</div></div>
+            <article class="menu-card" data-keywords="lattina coca cola">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Lattina Coca Cola</h3></div><p class="item-desc-en">Coca Cola 33 cl</p></div>
                 <div class="item-price">€ 3,50</div>
-            </div>
+            </article>
 
-            <div class="menu-card" data-keywords="lattina aranciata">
-                <div class="item-info"><div class="item-title-row"><span class="item-title">Lattina Aranciata</span></div><div class="item-desc-en">Aranciata 33 cl</div></div>
+            <article class="menu-card" data-keywords="lattina aranciata">
+                <div class="item-info"><div class="item-title-row"><h3 class="item-title">Lattina Aranciata</h3></div><p class="item-desc-en">Aranciata 33 cl</p></div>
                 <div class="item-price">€ 3,00</div>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- TABELLA ALLERGENI -->
-        <div id="allergeni" class="menu-section">
+        <section id="allergeni" class="menu-section">
             <div class="section-header">
                 <h2>Tabella Allergeni (Reg. UE 1169/2011)</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
             <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
                 I numeri riportati nei piatti corrispondono alle seguenti sostanze allergizzanti:
@@ -1320,31 +1334,32 @@
                 <div class="allergen-card"><div class="allergen-num">9</div><div class="allergen-text">Sedano e derivati</div></div>
                 <div class="allergen-card"><div class="allergen-num">10</div><div class="allergen-text">Senape e derivati</div></div>
                 <div class="allergen-card"><div class="allergen-num">11</div><div class="allergen-text">Semi di sesamo e derivati</div></div>
-                <div class="allergen-card"><div class="allergen-num">12</div><div class="allergen-text">Anidride solforosa e solfiti</div></div>
+                <div class="allergen-card"><div class="allergen-text">12</div><div class="allergen-text">Anidride solforosa e solfiti</div></div>
                 <div class="allergen-card"><div class="allergen-num">13</div><div class="allergen-text">Lupini e derivati</div></div>
                 <div class="allergen-card"><div class="allergen-num">14</div><div class="allergen-text">Molluschi e derivati</div></div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <footer>
         <div class="footer-content">
             <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 20px; margin-bottom: 5px;">Ristorante La Bussola</h3>
             <p style="font-size: 13px; color: var(--text-muted);">Di Dario Paradisi</p>
-            <p style="font-size: 14px; margin: 10px 0; color: var(--text-main);">Lungomare Amerigo Vespucci, 72 - 00122 Ostia Lido (RM)</p>
+            <address style="font-style: normal; font-size: 14px; margin: 10px 0; color: var(--text-main);">Lungomare Amerigo Vespucci, 72 - 00122 Ostia Lido (RM)</address>
 
             <div class="map-container">
                 <iframe 
                     src="https://maps.google.com/maps?q=Lungomare%20Amerigo%20Vespucci%2072%20Ostia%20Lido&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    title="Mappa di localizzazione Ristorante La Bussola"
                     allowfullscreen="" 
                     loading="lazy">
                 </iframe>
             </div>
 
             <div class="cta-group" style="margin-top: 15px;">
-                <a href="https://maps.google.com/?q=Lungomare+Amerigo+Vespucci+72+Ostia+Lido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold">
-                    <i class="fa-solid fa-diamond-turn-right"></i> Apri Navigatore GPS
+                <a href="https://maps.google.com/?q=Lungomare+Amerigo+Vespucci+72+Ostia+Lido" target="_blank" rel="noopener noreferrer" class="btn-cta btn-gold" aria-label="Apri indicazioni stradali su Google Maps">
+                    <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Apri Navigatore GPS
                 </a>
             </div>
 
@@ -1355,20 +1370,24 @@
     </footer>
 
     <!-- BANNER CONFORMITÀ PRIVACY E COOKIE (GDPR UE 2016/679) -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(6, 12, 20, 0.96); border-top: 1px solid var(--border-gold); padding: 12px 20px; font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; z-index: 1000; backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;">
+    <aside id="cookie-banner" aria-label="Informativa Cookie" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(6, 12, 20, 0.96); border-top: 1px solid var(--border-gold); padding: 12px 20px; font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; z-index: 1000; backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;">
         <span style="flex-grow: 1; min-width: 250px;">
-            <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary); margin-right: 6px;"></i>
-            Conforme GDPR (UE 2016/679). Nessun cookie di profilazione o tracciamento viene utilizzato su questo menu digitale.
+            <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary); margin-right: 6px;" aria-hidden="true"></i>
+            Conforme GDPR (UE 2016/679). Questo menu digitale non utilizza cookie di profilazione o tracciamento commerciale diretto.
         </span>
-        <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--gold-primary); color: #060c14; border: none; padding: 6px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; white-space: nowrap;">
+        <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--gold-primary); color: #060c14; border: none; padding: 6px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; min-height: 38px;">
             Ho capito
         </button>
-    </div>
+    </aside>
 
     <script>
         function scrollToSection(id, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
 
             var element = document.getElementById(id);
             if(element) {
@@ -1383,18 +1402,20 @@
             }
         }
 
-        function filterMenu() {
-            var input = document.getElementById('searchInput').value.toLowerCase();
-            var cards = document.querySelectorAll('.menu-card');
+        // Cache pre-calcolata degli elementi del menu per una ricerca istantanea e fluida
+        const menuCards = Array.from(document.querySelectorAll('.menu-card')).map(card => ({
+            element: card,
+            searchContent: (card.innerText + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase()
+        }));
 
-            cards.forEach(card => {
-                var text = card.innerText.toLowerCase();
-                var keywords = card.getAttribute('data-keywords') || '';
-                
-                if (text.includes(input) || keywords.toLowerCase().includes(input)) {
-                    card.style.display = "flex";
+        function filterMenu() {
+            var input = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            menuCards.forEach(item => {
+                if (input === '' || item.searchContent.includes(input)) {
+                    item.element.style.display = "flex";
                 } else {
-                    card.style.display = "none";
+                    item.element.style.display = "none";
                 }
             });
         }
